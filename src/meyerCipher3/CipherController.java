@@ -36,6 +36,14 @@ public class CipherController implements ActionListener {
 				}
 				this.m1.setDecryptText(this.v1.getText());
 			}
+			if(this.v1.isKeyChecked()) {
+				try {
+					this.m1.setKeyCipher(this.v1.getKey());
+				}catch(ExceptionsMeyer e1) {
+					JOptionPane.showMessageDialog(null, e1.toString(), "Keyword-Exception", JOptionPane.ERROR_MESSAGE);
+				}
+				this.m1.setDecryptText(this.v1.getText());
+			}
 		}
 		if(this.v1.isEnPressed(e)) {
 			if(this.v1.isSuChecked()) {
@@ -54,6 +62,15 @@ public class CipherController implements ActionListener {
 					this.m1.setShiftCipher(value);
 				}catch(NumberFormatException e1) {
 					JOptionPane.showMessageDialog(null, "The Value has to be a numeric number", "Number-Exception", JOptionPane.ERROR_MESSAGE);
+				}
+				this.m1.setEncryptText(this.v1.getText());
+			}
+			if(this.v1.isKeyChecked()) {
+				this.m1.setWhich(3);
+				try {
+					this.m1.setKeyCipher(this.v1.getKey());
+				}catch(ExceptionsMeyer e1) {
+					JOptionPane.showMessageDialog(null, e1.toString(), "Keyword-Exception", JOptionPane.ERROR_MESSAGE);
 				}
 				this.m1.setEncryptText(this.v1.getText());
 			}
