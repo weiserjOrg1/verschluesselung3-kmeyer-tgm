@@ -20,12 +20,16 @@ public class KeywordCipher extends MonoAlphabeticCipher{
                 }else {
                 	throw new ExceptionsMeyer("it contains wrong symbols"); 
                 }
-	
         }
-        for(int i=0; i<alpha.length(); i++) {
-        	for(int j=0; j<keyword.length(); j++) {
-        		if(keyword.charAt(j) == alpha.charAt(i)) {
-        			sAlpha = sAlpha + keyword.charAt(j);
+        boolean[] ga = new boolean[30];
+        for(int i = 0; i< ga.length; i++) {
+        	ga[i] = false;
+        }
+        for(int i=0; i<keyword.length(); i++) {
+        	for(int j=0; j<alpha.length(); j++) {
+        		if(keyword.charAt(i) == alpha.charAt(j) && ga[j]==false) {
+        			ga[j] = true;
+        			sAlpha = sAlpha + keyword.charAt(i);
         			break;
         		}
         	}
